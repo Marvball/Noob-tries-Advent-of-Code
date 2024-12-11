@@ -1,10 +1,15 @@
 #DAY_4_1
 matrix = []
+line_number = -1
 
 with open("test_input.txt", "r") as file:
-  txt = file.read().split("\n")
-  for lines in txt:
-    matrix.append(lines.split())
+  text = file.read().split("\n")
+#  print(text)
+
+for line in text:
+  line_list = [letter for letter in line]
+#  print(line_list)
+  matrix.append(line_list)
 
 print(matrix)
 
