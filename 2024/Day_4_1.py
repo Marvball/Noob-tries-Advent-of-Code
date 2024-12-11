@@ -19,31 +19,31 @@ for line in text:
 ''' scan for XMAS in horizontal lines '''
 def horizontal_left_right():
   global answer
-  for row in matrix:
-    try:
-      for i in range(len(row)):
-        if row[i] == "X":
-          if row[i+1] == "M":
-            if row[i+2] == "A":
-              if row[i+3] == "S":
+  for row in range(len(matrix)):
+    for column in range(len(matrix[row])):
+      if matrix[row][column] == "X":
+        try:
+          if matrix[row][column+1] == "M":
+            if matrix[row][column+2] == "A":
+              if matrix[row][column+3] == "S":
+                print(f"h_l_r: {row=} {column=}")
                 answer += 1
-                #print(f"Answer{answer}: horizontal {row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
-    except:
-      continue
+        except:
+          continue
 
 def horizontal_right_left():
   global answer
-  for row in matrix:
-    try:
-      for i in range(len(row)):
-        if row[i] == "S":
-          if row[i+1] == "A":
-            if row[i+2] == "M":
-              if row[i+3] == "X":
+  for row in range(len(matrix)):
+    for column in range(len(matrix[row])):
+      if matrix[row][column] == "X":
+        try:
+          if matrix[row][column-1] == "M" and column-1 >= 0:
+            if matrix[row][column-2] == "A" and column-2 >= 0:
+              if matrix[row][column-3] == "S" and column-2 >= 0:
+                print(f"h_r_l: {row=} {column=}")
                 answer += 1
-                #print(f"Answer{answer}: horizontal {row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
-    except:
-      continue
+        except:
+          continue
 
 ''' scan for XMAS in vertical lines '''
 def vertical_top_bottom():
@@ -55,7 +55,7 @@ def vertical_top_bottom():
           if matrix[row+1][column] == "M":
             if matrix[row+2][column] == "A":
               if matrix[row+3][column] == "S":
-                #print(f"{row=} {column=}")
+                print(f"v_t_b: {row=} {column=}")
                 answer += 1
         except:
           continue
@@ -69,7 +69,7 @@ def vertical_bottom_top():
           if matrix[row-1][column] == "M":
             if matrix[row-2][column] == "A":
               if matrix[row-3][column] == "S":
-                #print(f"{row=} {column=}")
+                print(f"v_b_t: {row=} {column=}")
                 answer += 1
         except:
           continue
@@ -83,7 +83,7 @@ def diagonal_tl_br():
           if matrix[row+1][column+1] == "M":
             if matrix[row+2][column+2] == "A":
               if matrix[row+3][column+3] == "S":
-                #print(f"{row=} {column=}")
+                print(f"d_tl_br: {row=} {column=}")
                 answer += 1
         except:
           continue 
@@ -97,7 +97,7 @@ def diagonal_bl_tr():
           if matrix[row-1][column+1] == "M":
             if matrix[row-2][column+2] == "A":
               if matrix[row-3][column+3] == "S":
-                #print(f"{row=} {column=}")
+                print(f"d_bl_tr: {row=} {column=}")
                 answer += 1
         except:
           continue
@@ -111,7 +111,7 @@ def diagonal_br_tl():
           if matrix[row-1][column-1] == "M" and column-1 >= 0:
             if matrix[row-2][column-2] == "A" and column-2 >= 0:
               if matrix[row-3][column-3] == "S" and column-2 >= 0:
-                print(f"{row=} {column=}")
+                print(f"d_br_tl: {row=} {column=}")
                 answer += 1
         except:
           continue
@@ -125,7 +125,7 @@ def diagonal_tr_bl():
           if matrix[row+1][column-1] == "M" and column-1 >= 0:
             if matrix[row+2][column-2] == "A" and column-2 >= 0:
               if matrix[row+3][column-3] == "S" and column-2 >= 0:
-                print(f"{row=} {column=}")
+                print(f"d_tr_bl: {row=} {column=}")
                 answer += 1
         except:
           continue
@@ -133,12 +133,12 @@ def diagonal_tr_bl():
 
 horizontal_left_right()
 horizontal_right_left()
-vertical_top_bottom()
-vertical_bottom_top()
-diagonal_tl_br()
-diagonal_bl_tr()
-diagonal_br_tl()
-diagonal_tr_bl()
+#vertical_top_bottom()
+#vertical_bottom_top()
+#diagonal_tl_br()
+#diagonal_bl_tr()
+#diagonal_br_tl()
+#diagonal_tr_bl()
 print(f"Final answer: {answer}")
 
 
