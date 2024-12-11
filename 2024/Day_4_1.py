@@ -26,11 +26,10 @@ def horizontal_left_right():
           if row[i+1] == "M":
             if row[i+2] == "A":
               if row[i+3] == "S":
-                print(f"{row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
                 answer += 1
+                print(f"Answer{answer}: horizontal {row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
     except:
       continue
-
 
 def horizontal_right_left():
   global answer
@@ -41,16 +40,50 @@ def horizontal_right_left():
           if row[i+1] == "A":
             if row[i+2] == "M":
               if row[i+3] == "X":
-                print(f"{row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
                 answer += 1
+                print(f"Answer{answer}: horizontal {row[i]}{row[i+1]}{row[i+2]}{row[i+3]}")
     except:
       continue
 
+''' scan for XMAS in vertical lines '''
+def vertical_top_bottom():
+  global answer
+  for row in range(len(matrix)):
+    for column in range(len(matrix[row])):
+      if matrix[row][column] == "X":
+        try:
+          if matrix[row+1][column] == "M":
+            if matrix[row+2][column] == "A":
+              if matrix[row+3][column] == "S":
+                print(f"{row=}{column=}")
+                answer += 1
+        except:
+          continue
+
+def vertical_bottom_top():
+  global answer
+  for row in range(len(matrix)):
+    for column in range(len(matrix[row])):
+      if matrix[row][column] == "X":
+        try:
+          if matrix[row-1][column] == "M":
+            if matrix[row-2][column] == "A":
+              if matrix[row-3][column] == "S":
+                print(f"{row=}{column=}")
+                answer += 1
+        except:
+          continue
+        
+   
 
 
-horizontal_left_right()
-horizontal_right_left()
-print(answer)
+
+
+#horizontal_left_right()
+#horizontal_right_left()
+#vertical_top_bottom()
+vertical_bottom_top()
+print(f"Final answer: {answer}")
 
 
 ###### Work in Progress #########
