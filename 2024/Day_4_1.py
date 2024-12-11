@@ -1,4 +1,4 @@
-#DAY_4_1_wip
+#DAY_4_1
 
 import re
 
@@ -6,7 +6,7 @@ matrix = []
 answer = 0
 
 ''' load Matrix from file '''
-with open("test_input.txt", "r") as file:
+with open("input.txt", "r") as file:
   text = file.read().split("\n")
 #  print(text)
 for line in text:
@@ -39,7 +39,7 @@ def horizontal_right_left():
         try:
           if matrix[row][column-1] == "M" and column-1 >= 0:
             if matrix[row][column-2] == "A" and column-2 >= 0:
-              if matrix[row][column-3] == "S" and column-2 >= 0:
+              if matrix[row][column-3] == "S" and column-3 >= 0:
                 print(f"h_r_l: {row=} {column=}")
                 answer += 1
         except:
@@ -66,9 +66,9 @@ def vertical_bottom_top():
     for column in range(len(matrix[row])):
       if matrix[row][column] == "X":
         try:
-          if matrix[row-1][column] == "M":
-            if matrix[row-2][column] == "A":
-              if matrix[row-3][column] == "S":
+          if matrix[row-1][column] == "M" and row-1 >= 0:
+            if matrix[row-2][column] == "A" and row-2 >= 0:
+              if matrix[row-3][column] == "S" and row-3 >= 0:
                 print(f"v_b_t: {row=} {column=}")
                 answer += 1
         except:
@@ -94,9 +94,9 @@ def diagonal_bl_tr():
     for column in range(len(matrix[row])):
       if matrix[row][column] == "X":
         try:
-          if matrix[row-1][column+1] == "M":
-            if matrix[row-2][column+2] == "A":
-              if matrix[row-3][column+3] == "S":
+          if matrix[row-1][column+1] == "M" and row-1 >= 0:
+            if matrix[row-2][column+2] == "A" and row-2 >= 0:
+              if matrix[row-3][column+3] == "S" and row-3 >= 0:
                 print(f"d_bl_tr: {row=} {column=}")
                 answer += 1
         except:
@@ -108,9 +108,9 @@ def diagonal_br_tl():
     for column in range(len(matrix[row])):
       if matrix[row][column] == "X":
         try:
-          if matrix[row-1][column-1] == "M" and column-1 >= 0:
-            if matrix[row-2][column-2] == "A" and column-2 >= 0:
-              if matrix[row-3][column-3] == "S" and column-2 >= 0:
+          if matrix[row-1][column-1] == "M" and column-1 >= 0 and row-1 >= 0:
+            if matrix[row-2][column-2] == "A" and column-2 >= 0 and row-2 >= 0:
+              if matrix[row-3][column-3] == "S" and column-3 >= 0 and row-3 >= 0:
                 print(f"d_br_tl: {row=} {column=}")
                 answer += 1
         except:
@@ -124,7 +124,7 @@ def diagonal_tr_bl():
         try:
           if matrix[row+1][column-1] == "M" and column-1 >= 0:
             if matrix[row+2][column-2] == "A" and column-2 >= 0:
-              if matrix[row+3][column-3] == "S" and column-2 >= 0:
+              if matrix[row+3][column-3] == "S" and column-3 >= 0:
                 print(f"d_tr_bl: {row=} {column=}")
                 answer += 1
         except:
@@ -133,13 +133,10 @@ def diagonal_tr_bl():
 
 horizontal_left_right()
 horizontal_right_left()
-#vertical_top_bottom()
-#vertical_bottom_top()
-#diagonal_tl_br()
-#diagonal_bl_tr()
-#diagonal_br_tl()
-#diagonal_tr_bl()
+vertical_top_bottom()
+vertical_bottom_top()
+diagonal_tl_br()
+diagonal_bl_tr()
+diagonal_br_tl()
+diagonal_tr_bl()
 print(f"Final answer: {answer}")
-
-
-###### Work in Progress #########
