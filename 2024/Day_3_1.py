@@ -1,5 +1,5 @@
 #DAY_3_1
-import re
+
 answer = 0
 
 with open("input.txt", "r") as file:
