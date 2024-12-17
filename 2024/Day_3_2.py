@@ -1,5 +1,5 @@
 #DAY_3_2
-import re
+
 answer = 0
 do_switch = 1
 answer_list = []
