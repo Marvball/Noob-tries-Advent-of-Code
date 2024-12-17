@@ -1,7 +1,5 @@
 #DAY_4_1
 
-import re
-
 matrix = []
 answer = 0
 
