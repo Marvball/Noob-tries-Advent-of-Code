@@ -1,5 +1,4 @@
 # Day_5_1
-import re
 answer = 0
 
 with open("drive/MyDrive/Colab Notebooks/input_data/input_day5.txt", "r") as file:
