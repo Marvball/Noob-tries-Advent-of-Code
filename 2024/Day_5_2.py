@@ -1,7 +1,7 @@
 # Day_5_2
 answer = 0
 
-with open("drive/MyDrive/Colab Notebooks/input_data/input_day5.txt", "r") as file:
+with open("input_day5.txt", "r") as file:
   text = file.read().strip()
   sep1, sep2 = text.split("\n\n")
   sep1 = sep1.split("\n")
