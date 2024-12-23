@@ -11,7 +11,7 @@ guard_facing = ""
 walk_path = []
 on_matrix = True
 
-with open("drive/MyDrive/Colab Notebooks/input_data/input_day6.txt", "r") as file:
+with open("input_day6.txt", "r") as file:
   text = file.read().splitlines()
 matrix = [list(line) for line in text]
 
